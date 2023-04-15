@@ -8,4 +8,5 @@ BeepoPy is built on PyQt5 and partially designed with the QtDesigner.
 Example tasks and solutions can be found in the documentation.
 
 THIS IS ONLY A SCHOOL/PERSONAL PROJECT
+
 THE CODE IS STILL IN AN EARLY PHASE OF DEVELOPMENT
