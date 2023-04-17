@@ -1,0 +1,3 @@
+Beepo.turn_right(17)
+
+self.update();time.sleep(1)
