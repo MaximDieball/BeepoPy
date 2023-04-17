@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-# NOT USED RIGHT NOW
+# pretext is not used
 pretext = ""
 '''
 pretext = '"""\nWrite your first code and learn programming together with Beepo!\n\n '\
