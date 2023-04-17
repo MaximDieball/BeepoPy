@@ -7,6 +7,9 @@ BeepoPy is built on PyQt5 and partially designed with the QtDesigner.
 
 Example tasks and solutions can be found in the documentation.
 
+HOW TO RUN:
+To execute the project, install one of the project folders and run the program inside the folder.
+
 THIS IS ONLY A SCHOOL/PERSONAL PROJECT
 
 THE CODE IS STILL IN AN EARLY PHASE OF DEVELOPMENT
