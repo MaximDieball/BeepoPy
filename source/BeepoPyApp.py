@@ -257,7 +257,7 @@ class Ui_MainWindow(QMainWindow):
         self.GearCounter.setText("Gears: 0")
 
     # creates a BOARD using LISTS inside LISTS which contain LISTS that contain information about what is on the square
-    # the BOARD is stored in the GRID variable
+    # the BOARD is stored in the LIST variable
     # calling a function to create a BUTTON for every square to display on the UI
     def generate_board(self, height, width):
         global grid
