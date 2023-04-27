@@ -522,12 +522,14 @@ class Robot:
         else:
             beepo_rotation = directions[directions.index(beepo_rotation) + i_rotation]
         print(beepo_rotation)
+        App.update()
 
     # TURNS ROBOT to the LEFT by 90 degrees if no specific rotation is given
     def turn_left(self, i_rotation=1):
         global beepo_rotation
         beepo_rotation = directions[directions.index(beepo_rotation) - i_rotation]
         print(beepo_rotation)
+        App.update()
 
     # DELETES GEAR
     # CHANGES gears_picked_up by 1
@@ -538,9 +540,11 @@ class Robot:
             gears_picked_up += 1
             grid[beepo_y][beepo_x][2] = "x"
             App.update_variables()
+            App.update()
         else:
             error = "tried to pick up gear with out standing on gear"
             raise Exception
+
 
     # CHANGES X and Y COORDINATES to given value
     def set_position(self, i_x, i_y):
@@ -550,11 +554,13 @@ class Robot:
         beepo_x = i_x
         beepo_y = i_y
         grid[beepo_y][beepo_x][0] = "B"
+        App.update()
 
     # CHANGES the robots ROTATION to given value
     def set_rotation(self, i_r):
         global beepo_rotation
         beepo_rotation = i_r
+        App.update()
 
     # CHECKS if a WALL is in front  of the ROBOT
     def wall_front(self):
