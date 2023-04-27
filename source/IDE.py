@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-# pretext is not used
+# NOT USED RIGHT NOW
 pretext = ""
 '''
 pretext = '"""\nWrite your first code and learn programming together with Beepo!\n\n '\
@@ -36,8 +36,8 @@ class Ui_IDE(object):
         # INPUT TEXT EDIT
         self.InputTextEdit = QtWidgets.QTextEdit(MainWindow)
         self.InputTextEdit.setGeometry(QtCore.QRect(20, 80, 741, 451))
-        # LOADING CODE from Code.txt
-        with open("Code.txt", "r") as Code:
+        # LOADING CODE from Code.py
+        with open("Code.py", "r") as Code:
             load_code = Code.read()
             self.InputTextEdit.setText(pretext + load_code)
 
@@ -69,18 +69,16 @@ class Ui_IDE(object):
         self.CompileButton.setText(_translate("MainWindow", "Compile"))
         self.SaveButton.setText(_translate("MainWindow", "Save"))
 
-    # CHECKING for ERRORS in Code.txt
+    # CHECKING for ERRORS in Code.py
     # CHANGING CODE
-    # WRITING Code.txt to Compiled.txt
+    # WRITING Code.py to Compiled.py
     def compile(self):
-        Code_file = "Code.txt"
-        Compiled_file = "Compiled.txt"
+        Code_file = "Code.py"
+        Compiled_file = "Compiled.py"
 
         output = ""
         with open(Code_file, "r") as Code:
             source = Code.read()
-            source_lines = Code.readlines()
-            source_compiled = ""
         try:
             compile(source, Code_file, "exec")
             output += "No syntax errors found."
@@ -92,15 +90,7 @@ class Ui_IDE(object):
                     if ":" not in line:
                         for _ in range(count_tabs(line)):
                             compiled_output = compiled_output + "\t"
-                        compiled_output = compiled_output + f"self.update();time.sleep(1)\n"
-                        """
-                        for _ in range(count_tabs(line)):
-                            compiled_output = compiled_output + "\t"
-                        compiled_output = compiled_output + 'if grid[beepo_y][beepo_x][1] == "W":\n'
-                        for _ in range(count_tabs(line)):
-                            compiled_output = compiled_output + "\t"
-                        compiled_output = compiled_output + '\tself.error("Beepo ran into a wall")\n'
-                        """
+                        compiled_output = compiled_output + f"time.sleep(1)\n"
             with open(Compiled_file, "w") as Compile_Code:
                 Compile_Code.write(compiled_output)
         except SyntaxError as e:
@@ -112,9 +102,8 @@ class Ui_IDE(object):
             output += f"Error reading Code: {e}"
         self.ErrorLabel.setText(output)
 
-    # SAVING CODE writen in the ide to CODE.TXT
+    # SAVING CODE writen in the ide to Code.py
     def save(self):
-        Code_file = "Code.txt"
-        Compiled_file = "Compiled.txt"
+        Code_file = "Code.py"
         with open(Code_file,"w") as Code:
             Code.write(self.InputTextEdit.toPlainText())
