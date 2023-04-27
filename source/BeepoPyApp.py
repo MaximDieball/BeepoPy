@@ -257,7 +257,7 @@ class Ui_MainWindow(QMainWindow):
         self.GearCounter.setText("Gears: 0")
 
     # creates a BOARD using LISTS inside LISTS which contain LISTS that contain information about what is on the square
-    # the BOARD is stored in the LIST variable
+    # the BOARD is stored in the GRID variable
     # calling a function to create a BUTTON for every square to display on the UI
     def generate_board(self, height, width):
         global grid
@@ -299,19 +299,18 @@ class Ui_MainWindow(QMainWindow):
         self.ui.setupUi(self.window)
         self.window.show()
 
-    # RUNS the CODE writen in the Compiled.txt file
+    # RUNS the CODE writen in the Compiled.py file
     def run(self):
         global sleep_time
         global error
         global gears_picked_up
         gears_picked_up = 0
         error = "Crash"
-        with open("Compiled.txt", "r") as Compiled:
-            source = Compiled.read()
-            try:
-                exec(source)
-            except:
-                self.error()
+        try:
+            exec(open("Compiled.py").read())
+        except:
+            self.error()
+
 
     # SPAWNS MESSAGEBOX
     def error(self):
