@@ -332,6 +332,8 @@ class Ui_MainWindow(QMainWindow):
 
     # CHANGES the STATE of a SQUARE
     # Checks for BREAKING of GAME RULES before
+    # TODO do not use exec / UNSAFE CODE / FIX LATER 
+    # TODO use Switch and Case
     def set_square(self, y, x):
         global grid
         global beepo_rotation
@@ -419,11 +421,12 @@ class Ui_MainWindow(QMainWindow):
 
     # PLACES the selected PIECE on pressed SQUAR
     # CHECKS for GAME RULES
+    # TODO use Switch and Case
     def place_piece(self, y, x):
         global selected_piece
         global beepo_x
         global beepo_y
-        if selected_piece == "B":
+        if selected_piece == "B":            # TODO use Switch and Case
             grid[beepo_y][beepo_x][0] = "x"
             beepo_x = x
             beepo_y = y
@@ -590,7 +593,7 @@ class Robot:
         global beepo_x
         global beepo_y
         global beepo_rotation
-
+        # TODO use Switch and Case
         if beepo_rotation == "n":
             if grid[beepo_y][beepo_x-1][1] == "W":
                 return True
@@ -612,7 +615,7 @@ class Robot:
         global beepo_x
         global beepo_y
         global beepo_rotation
-
+        # TODO use Switch and Case
         if beepo_rotation == "n":
             if grid[beepo_y][beepo_x+1][1] == "W":
                 return True
